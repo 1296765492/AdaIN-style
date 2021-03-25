@@ -167,5 +167,3 @@ This project is inspired by many existing style transfer methods and their open-
 ## Contact
 
 If you have any questions or suggestions about the paper, feel free to reach me (xh258@cornell.edu).
-
-Git Test
