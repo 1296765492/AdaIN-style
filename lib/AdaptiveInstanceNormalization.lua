@@ -48,6 +48,31 @@ function AdaptiveInstanceNormalization:updateOutput(input) --{content, style}
     
     -- helper
     print(N, self.nOutput, Hc, Wc, Hs, Ws)
+    -- 4 dimensions only
+    for k1, v1 in pairs(content) do
+      print(k1)
+      for k2, v2 in pairs(content[k1]) do
+        print(k2)
+        for k3, v3 in pairs(content[k1][k2]) do
+          print(k3)
+          for k4, v4 in pairs(content[k1][k2][k3]) do
+            print(k4, v4)
+          end
+        end
+      end
+    end
+    for k1, v1 in pairs(style) do
+      print(k1)
+      for k2, v2 in pairs(style[k1]) do
+        print(k2)
+        for k3, v3 in pairs(style[k1][k2]) do
+          print(k3)
+          for k4, v4 in pairs(style[k1][k2][k3]) do
+            print(k4, v4)
+          end
+        end
+      end
+    end
 
     -- compute target mean and standard deviation from the style input
     local styleView = style:view(N, self.nOutput, Hs*Ws)
