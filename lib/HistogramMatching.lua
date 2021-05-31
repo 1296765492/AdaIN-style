@@ -36,7 +36,7 @@ end
 
 function HistogramMatching:updateOutput(input) --{content, style}
     local startTime = os.time()
-    print("into function updateOutput")
+    -- print("into function updateOutput")
     local content = input[1]
     local style = input[2]
 
@@ -108,15 +108,15 @@ function HistogramMatching:updateOutput(input) --{content, style}
     self.output = self.bn:forward(contentView):viewAs(content)
     ]]
     self.output = content:clone()
-    print("start hm")
+    -- print("start hm")
 
     -- histogram matching
     local numDP = 2
     for n = 1, N do
       for c = 1, self.nOutput do
-	print("into channel", n, c)
+	-- print("into channel", n, c)
         -- for every channel or feature map
-	print("generate histogram")
+	-- print("generate histogram")
         -- generate histogram of content
         local cHisto = {}
         for h = 1, Hc do
@@ -169,7 +169,7 @@ function HistogramMatching:updateOutput(input) --{content, style}
           print(k, v, sHisto[v])
         end
         ]]
-	print("calculate CDF")
+	-- print("calculate CDF")
         -- calculate cumulative distributive function (CDF) of content
         local cCDF = {}
         local sum = 0
@@ -196,7 +196,7 @@ function HistogramMatching:updateOutput(input) --{content, style}
           print(k, v, sCDF[v])
         end
         ]]
-	print("match histogram")
+	-- print("match histogram")
         -- match histogram
         local match = {}
         local index = 1
@@ -227,7 +227,7 @@ function HistogramMatching:updateOutput(input) --{content, style}
           print(k, v)
         end
         ]]
-	print("construct output")
+	-- print("construct output")
         -- construct output
         for h = 1, Hc do
           for w = 1, Wc do
@@ -251,7 +251,7 @@ function HistogramMatching:updateOutput(input) --{content, style}
     local time = endTime - startTime
     print("time", time)
     
-    print("return")
+    -- print("return")
     return self.output
 end
 
