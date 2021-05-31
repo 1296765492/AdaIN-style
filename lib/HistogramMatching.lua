@@ -110,7 +110,7 @@ function HistogramMatching:updateOutput(input) --{content, style}
     -- histogram matching
     local numDP = 2
     for n = 1, N do
-      for c = 1, nOutput do
+      for c = 1, self.nOutput do
         -- for every channel or feature map
         -- generate histogram of content
         local cHisto = {}
