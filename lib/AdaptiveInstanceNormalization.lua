@@ -46,6 +46,7 @@ function AdaptiveInstanceNormalization:updateOutput(input) --{content, style}
         Hs, Ws = style:size(3), style:size(4)
     end
     
+    --[[
     -- helper
     print(N, self.nOutput, Hc, Wc, Hs, Ws)
     for n = 1, N do 
@@ -66,6 +67,7 @@ function AdaptiveInstanceNormalization:updateOutput(input) --{content, style}
         end
       end
     end
+    ]]
 
     -- compute target mean and standard deviation from the style input
     local styleView = style:view(N, self.nOutput, Hs*Ws)
