@@ -20,6 +20,7 @@ function AdaptiveInstanceNormalization:__init(nOutput, disabled, eps)
 end
 
 function AdaptiveInstanceNormalization:updateOutput(input) --{content, style}
+    local startTime = os.time()
     local content = input[1]
     local style = input[2]
 
@@ -88,6 +89,11 @@ function AdaptiveInstanceNormalization:updateOutput(input) --{content, style}
     local contentView = content:view(1, N * self.nOutput, Hc, Wc)
     self.bn:training()
     self.output = self.bn:forward(contentView):viewAs(content)
+    
+    local endTime = os.time()
+    local time = endTime - startTime
+    print("time", time)
+    
     return self.output
 end
 

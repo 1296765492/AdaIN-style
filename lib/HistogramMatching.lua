@@ -35,6 +35,7 @@ function round(num, numDecimalPlaces)
 end
 
 function HistogramMatching:updateOutput(input) --{content, style}
+    local startTime = os.time()
     print("into function updateOutput")
     local content = input[1]
     local style = input[2]
@@ -245,6 +246,10 @@ function HistogramMatching:updateOutput(input) --{content, style}
         ]]
       end
     end
+    
+    local endTime = os.time()
+    local time = endTime - startTime
+    print("time", time)
     
     print("return")
     return self.output
