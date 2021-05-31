@@ -129,11 +129,9 @@ function HistogramMatching:updateOutput(input) --{content, style}
             end
           end
         end
-        for k, v in pairs(cHisto) do
-          cHisto[k] = v / (Hc * Wc)
-        end
         local cHistoMeta = {}
         for k, v in pairs(cHisto) do
+          cHisto[k] = v / (Hc * Wc)
           table.insert(cHistoMeta, k)
         end
         table.sort(cHistoMeta)
@@ -155,11 +153,9 @@ function HistogramMatching:updateOutput(input) --{content, style}
             end
           end
         end
-        for k, v in pairs(sHisto) do
-          sHisto[k] = v / (Hs * Ws)
-        end
         local sHistoMeta = {}
         for k, v in pairs(sHisto) do
+          sHisto[k] = v / (Hs * Ws)
           table.insert(sHistoMeta, k)
         end
         table.sort(sHistoMeta)
